@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>GFashion</title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css">
 </head>
 <body>
@@ -75,37 +75,47 @@
 	<!-- banner区 -->
 	<div id="banner">
 		<!-- 图片区 -->
-		<ul style="left:-1349px;">
+		<ul style="left:-1366px;" id="imgs">
 			<li>
 				<img src="img/03.jpg" alt="">
-				<div></div>
+				<!-- <div></div> -->
 			</li>
 			<li>
 				<img src="img/01.jpg" alt="">
-				<div></div>
+				<!-- <div></div> -->
 			</li>
 			<li>
-				<img src="" alt="">
-				<div></div>
+				<!-- <div></div> -->
 			</li>
 			<li>
 				<img src="img/03.jpg" alt="">
-				<div></div>
+				<!-- <div></div> -->
 			</li>
 			<li>
 				<img src="img/01.jpg" alt="">
-				<div></div>
+				<!-- <div></div> -->
 			</li>
 		</ul>
 		<!-- /图片区 -->
 		<!-- 点选条区 -->
-		<ul class="changeBar">
-			<li><a href="javascript:;">1</a></li>
-			<li><a href="javascript:;">1</a></li>
-			<li><a href="javascript:;">1</a></li>
-		</ul>
+		<ol id="changeBar">
+			<li><a href="javascript:;" class="active"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+		</ol>
 		<!-- /点选条区 -->
+		<!-- 左右切图 -->
+		<div class="prev">
+			<a href="javascript:;" id="prev" class="icon icon-arrow-left"></a>
+		</div>
+		<div class="next">
+			<a href="javascript:;" id="next" class="icon icon-arrow-right"></a>
+		</div>
+		<!-- /左右切图 -->
 	</div>
 	<!-- /banner -->
+
+	<!--  -->
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
