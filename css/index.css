@@ -213,10 +213,15 @@ body {
 	height: 492px;
 	position: relative;
 	overflow: hidden;
+	text-shadow: 0 2px 5px rgba(0,0,0,0.5)
 }	 
 
+#banner #imgs {
+	transition:all 0.4s;
+}
+
 #banner ul {
-	width:6800px;
+	width:6830px;
 	position: absolute;
 }
 
@@ -225,7 +230,9 @@ body {
 	width: 1366px;
 	height: 500px;
 	float: left;
-	background: #0cc;
+	background: #FA6F57;
+	position: relative;
+	overflow: hidden;
 }
 
 #banner ul li img {
@@ -235,14 +242,13 @@ body {
 
 /* 左右切图按钮 */
 
-#banner div {
+#banner > div {
 	opacity: 0;
 	width: 32px;
 	height: 32px;
 	position: absolute;
 	top: 50%;
 	transition:all 0.4s;
-
 }
 
 #banner .prev {
@@ -266,7 +272,7 @@ body {
 }
 
 /*按钮悬停*/
-#banner div > a {
+#banner > div > a {
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -283,7 +289,7 @@ body {
 	top:50%;
 }
 
-#banner div > a:hover {
+#banner > div > a:hover {
 	background: #333;
 	color: #fff;
 }
@@ -323,4 +329,183 @@ body {
 
 #changeBar li a:hover {
 	border: 3px solid #FA6F57;
+}
+
+/* 图片文字区:一区 */
+#banner .textContainer {
+	border-radius: 1px;
+	width: 600px;
+	height: 300px;
+	position: absolute;
+	left: 580px;
+	top: 130px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+	font-weight: 600;
+	background: rgba(0,0,0,.4);
+}
+
+/* 动画 */
+@keyframes  topAni{
+	to {
+		left:50%;
+		transform:translate(-50%);
+	}
+}
+
+@keyframes  midAni{
+	to {
+		left:50%;
+		transform:translate(-50%);
+	}
+}
+
+@keyframes  bottomAni{
+	to {
+		opacity: 1;
+	}
+}
+.textContainer .top {
+	position: absolute;
+	left: -1360px;
+	font-size: 18px;
+	-webkit-animation: topAni 0.6s 0.6s forwards;
+	-o-animation: topAni 0.6s 0.6s forwards;
+	animation: topAni 0.6s 0.6s forwards;
+}
+
+.textContainer .mid {
+	position: absolute;
+	right: -800px;
+	margin-top: 40px;
+	font-size: 72px;
+	-webkit-animation: midAni 0.6s 1s forwards;
+	-o-animation: midAni 0.6s 1s forwards;
+	animation: midAni 0.6s 1s forwards;
+}
+
+.textContainer .bottom {
+	width: 100%;
+	position: absolute;
+	opacity: 0;
+	top: 160px;
+	font-size: 20px;
+	-webkit-animation: bottomAni 0.6s 1.8s forwards;
+	-o-animation: bottomAni 0.6s 1.8s forwards;
+	animation: bottomAni 0.6s 1.8s forwards;
+}
+
+.bottom  a {
+	font-size: 14px;
+	display: block;
+	position: static;
+	border-radius: 4px;
+	background: #FA6F57;
+	color: #fff;
+	width: 108px;
+	line-height: 34px;
+	margin: 20px auto;
+}
+
+.bottom a:hover {
+	margin-top: 21px;
+	background: #f9654c;
+	box-shadow: 0 2px 3px rgba(0,0,0,.2) inset;
+}
+
+/* 图片文字区2 */
+#second {
+	text-align: center;
+	width: 1000px;
+	height: 280px;
+	margin: 80px auto;
+	position: relative;
+	font-weight: 600;
+}
+
+#second > p {
+	color: #fff;
+}
+
+#second span {
+	display: inline-block;
+	background: #fff;
+	color: #FA6F57;
+	position: absolute;
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	top: 20px;
+}
+
+#second .left {
+	left: -500px;
+}
+
+#second .right {
+	right: -500px;
+}
+
+#sale {
+	font-size: 160px;
+	letter-spacing: 5px;
+	line-height: 1;
+	display: none;
+}
+
+#second i {
+	font-style: normal;
+	position: relative;
+	left: 20px;
+}
+
+#second .right + p {
+	display: none;
+	font-size: 36px;
+	line-height: 1.75;
+	position: absolute;
+	top: 180px;
+	left: 250px;
+}
+
+#second span p {
+	text-shadow: none;
+	font-size: 50px;
+}
+
+#second .top {
+	margin-top: 50px;
+}
+
+/*图片文字3区*/
+#third {
+	width: 530px;
+	background: rgba(250,111,87,0.4);
+	position: absolute;
+	right: 0;
+	top: 60px;
+	text-align: center;
+	color: #fff;
+}
+
+#third p {
+	width: 100%;
+	position: absolute;
+	right: 0;
+	background: rgba(0,0,0,.3);
+	line-height: 1;
+}
+
+#third .top {
+	top: 500px;
+	font-size: 72px;
+	padding: 15px 32px;
+}
+
+#third .bottom {
+	position: absolute;
+	top: 600px;
+	font-size: 42px;
+	padding: 15px 16px;
 }
