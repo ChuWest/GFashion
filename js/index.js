@@ -54,11 +54,17 @@ window.onload = function() {
 	for(var i = 0;i < changeBars.length;i ++) {
 		(function(ii){
 			changeBars[ii].onclick = function() {
+
 				// 判断动画是否进行
 				if(isAnimate) 
 					return;
+
+				// 清除文字动画
+				delAnimate(index);
 				var offset = imgWidth * (index - ii);//计算偏移量
 				index = ii;//记录当前
+				// 文字动画函数
+				textAnimate(index);
 				animate(offset);
 				}
 		})(i);
@@ -131,6 +137,11 @@ window.onload = function() {
 	/*清除图片文字动画*/
 	function delAnimate(which) {
 		switch(which) {
+			case 0: {
+				$('#banner .textContainer .top').removeClass('activeTop');
+				$('#banner .textContainer .mid').removeClass('activeMid');
+				$('#banner .textContainer .bottom').removeClass('activeBottom');
+			}
 			case 1: {
 				$('#sale').slideUp(1, function() {
 					$('#sale').siblings('.left').animate({
@@ -156,6 +167,11 @@ window.onload = function() {
 	/*执行图片文字动画*/
 	function textAnimate(which) {
 		switch(which) {
+			case 0: {
+				$('#banner .textContainer .top').addClass('activeTop');
+				$('#banner .textContainer .mid').addClass('activeMid');
+				$('#banner .textContainer .bottom').addClass('activeBottom');
+			}
 			case 1: {
 				$('#sale').slideDown(800, function() {
 					$('#sale').siblings('.left').animate({
