@@ -4,6 +4,13 @@ body {
 	background: #E2E2E2;
 }
 
+/*宽度控制*/
+.width {
+	width: 1170px;
+	margin: 0 auto;
+	background: #0cc;
+}
+
 /*测试类*/
 #text {
 	background: #81d8df;
@@ -576,6 +583,8 @@ body {
 }
 /**/
 #main #coverUp {
+	position: relative;
+	top: 1px;
 	font-size: 72px;
 	display: table;
 	width: 100%;
@@ -691,21 +700,17 @@ body {
 
 /*女装区*/
 #female {
+	position: relative;
 	height: 800px;
 	/*background: #E0E0E0;*/
 	background: #FA6F57;
 	border-top: 6px solid #d9d9d9;
 	border-bottom: 6px solid #d9d9d9;
 }
-/*宽度控制*/
-.width {
-	width: 1170px;
-	margin: 0 auto;
-	background: #0cc;
-}
+
 #female .header {
 	text-align: center;
-	margin: 60px auto 30px;
+	margin: 60px auto 0px;
 }
 
 #female .header h1 {
@@ -721,7 +726,113 @@ body {
 	color: #676767;
 }
 
-/*图片*/
-#female .feChange {
-	
+/*展示区切换按钮*/
+#female .circleChange {
+	position: relative;
+	text-align: center;
+	font-size: 16px;
+	line-height: 32px !important;
+	color: #919191;
 }
+
+#female .circleChange > div {
+	position: relative;
+	width: 50%;
+	overflow: hidden;
+}
+
+#female .circleChange > div > div {
+	cursor: pointer;
+}
+
+#female .circleChange > div > div:hover {
+	color: #FA6F57;
+	border-color: #FA6F57;
+}
+
+
+#female .circleChange div div ,#female span {
+	display: block;
+	width: 32px;
+	height: 32px;
+	margin: 0 10px;
+	border: 2px solid #919191;
+	border-radius: 50%;
+}
+/*蒙版*/
+#female span {
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#female .rightBtn span {
+	left: 0;
+}
+
+#female span a {
+	display: block;
+	color: #919191; 
+}
+
+
+/*悬停小动画*/
+@-webkit-keyframes leftAni {
+	to {
+		opacity: 0;
+		right: 4em;
+	}
+}
+
+@-webkit-keyframes leftAni {
+	to {
+		opacity: 0;
+		right: 4em;
+	}
+}
+
+@-webkit-keyframes rightAni {
+	to {
+		opacity: 0;
+		left: 4em;
+	}
+}
+
+@-webkit-keyframes rightAni {
+	to {
+		opacity: 0;
+		left: 4em;
+	}
+}
+
+#female .icon-arrow-left2:hover span {
+	-webkit-animation: leftAni 0.6s forwards;
+	-o-animation: leftAni 0.6s forwards;
+	animation: leftAni 0.6s forwards;
+}
+
+#female .icon-arrow-right2:hover span {
+	-webkit-animation: rightAni 0.6s forwards;
+	-o-animation: rightAni 0.6s forwards;
+	animation: rightAni 0.6s forwards;
+}
+
+/*外层容器50%*/
+#female .circleChange .leftBtn {
+	float: left;
+}
+
+#female .circleChange .rightBtn {
+	float: right;
+}
+
+#female .circleChange .leftBtn div {
+	float: right;	
+}
+
+#female .circleChange .rightBtn div {
+	float: left;
+}
+
+/*展示区图片*/
