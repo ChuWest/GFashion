@@ -9,6 +9,8 @@ body {
 	width: 1170px;
 	margin: 0 auto;
 	background: #0cc;
+	overflow: hidden;
+	position: relative;
 }
 
 /*测试类*/
@@ -751,7 +753,7 @@ body {
 }
 
 
-#female .circleChange div div ,#female span {
+#female .circleChange div div ,#female .circleChange span {
 	display: block;
 	width: 32px;
 	height: 32px;
@@ -760,7 +762,7 @@ body {
 	border-radius: 50%;
 }
 /*蒙版*/
-#female span {
+#female .circleChange span {
 	opacity: 1;
 	position: absolute;
 	top: 0;
@@ -835,4 +837,173 @@ body {
 	float: left;
 }
 
-/*展示区图片*/
+/*展示区图片,女*/
+
+#ShowCtnr {
+	width: 4688px;
+}
+
+#ShowCtnr > li {
+	position: relative;
+	float: left;
+	width: 293px;
+	height: 380px;
+	border: 1px solid #dedede;
+	border-bottom: none;
+	border-radius: 2px;
+	background: url(../img/images/women/basic/848051-0014_1.jpg) no-repeat center center;
+	background-size: cover;
+	box-shadow: 0 0 5px rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);
+	overflow: hidden;
+}
+
+#ShowCtnr img {
+	display: none;
+}
+
+/*sale图章*/
+#ShowCtnr .showSale {
+	position: absolute;
+	top: 30px;
+	left: 15px;
+	width: 44px;
+	border: 2px solid #FA6F57;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 44px;
+	background: #fff;
+	color: #FA6F57;
+}
+
+/*放大镜+购物车*/
+#ShowCtnr .showHider {
+	transition: all 0.4s;
+	position: absolute;
+	top: 78px;
+	left: -50px;
+	color: #fff;
+}
+
+#ShowCtnr > li:hover .showHider{
+	left: 15px;
+}
+
+#ShowCtnr .showHider div {
+	width: 44px;
+	border: 2px solid #919191;
+	border-radius: 50%;
+	background: #FA6F57;
+	line-height: 44px;
+	text-align: center;
+	font-size: 18px;
+	margin-top: 10px;
+	transition: all 0.4s;
+	cursor: pointer;
+}
+
+#ShowCtnr .showHider div:hover {
+	background: #1f1f1f;
+}
+
+/*蒙板*/
+#ShowCtnr .showCover {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+#ShowCtnr > li:hover .showCover {
+	background: rgba(0,0,0,.3);
+}
+
+/*星条*/
+#ShowCtnr .showStar {
+	position: absolute;
+	bottom: -20px;
+	right: 20px;
+	width: 70px;
+	height: 12px;
+	background: rgba(0,0,0,.4);
+	transition: all 0.4s;
+}
+
+#ShowCtnr > li:hover .showStar {
+	bottom: 20px;
+	right: 20px;
+}
+
+/*展示信息*/
+#ShowCtnr .showMsg {
+	width: 293px;
+	height: 130px;
+	background: #fff;
+	clear: both;
+	border: 1px solid #dedede;
+	border-top: none;
+	border-radius: 2px;
+	box-shadow: 0 0 5px rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.15);
+	color: #1f1f1f;
+	text-align: center;
+}
+
+#ShowCtnr .showMsg li:first-child {
+	cursor: pointer;
+	padding-top: 20px;
+	font-size: 16px;
+}
+
+#ShowCtnr .showMsg li:first-child {
+	cursor: pointer;
+}
+
+#ShowCtnr .showMsg li:first-child:hover {
+	color: #FA6F57;
+}
+
+#ShowCtnr .showMsg li:last-child {
+	cursor: pointer;
+} 
+
+/*价格*/
+#ShowCtnr .msgMid {
+	margin: 8px 0;
+}
+
+#ShowCtnr .msgMid span {
+	font-size: 14px;
+	display: inline-block;
+	line-height: 2em;
+	vertical-align: middle;
+	width: 40%;
+}
+
+#ShowCtnr .msgMid span:first-child {
+	font-weight: 500;
+	color: #919191;
+	text-decoration: line-through;
+}
+
+#ShowCtnr .msgMid span:last-child {
+	font-weight: 600;
+	font-size: 18px;
+	color: #FA6F57;
+}
+
+/*增加操作*/
+#ShowCtnr .msgAdd {
+	color: #1f1f1f;
+	font-size: 12px;
+}
+
+#ShowCtnr .msgAdd span {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 20px;
+}
+
+#ShowCtnr .msgAdd span:hover {
+	color: #FA6F57;
+}
