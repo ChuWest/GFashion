@@ -919,19 +919,59 @@ body {
 }
 
 /*星条*/
-#ShowCtnr .showStar {
+#ShowCtnr #showStar {
 	position: absolute;
-	bottom: -20px;
+	bottom: 20px;
 	right: 20px;
-	width: 70px;
-	height: 12px;
-	background: rgba(0,0,0,.4);
+	/*height: 12px;*/
 	transition: all 0.4s;
 }
 
-#ShowCtnr > li:hover .showStar {
-	bottom: 20px;
-	right: 20px;
+#ShowCtnr #showStar ul {
+	position: relative;
+	overflow: hidden;
+}
+/*背景黑色星条*/
+#ShowCtnr #showStar li {
+	width: 12px;
+	height: 12px;
+	background: url(../img/star.png) no-repeat 0 0;
+	float: left;
+}
+
+#starBg {
+	position: relative;
+	background: rgba(0,0,0,.);
+}
+
+/*前景橙色星条*/
+#ShowCtnr #FaceWrapper {
+	position: absolute;
+	top: 0;
+	width: 54px;
+	overflow: hidden;
+}
+
+#ShowCtnr #starFace {
+	width: 60px;
+	height: 12px;
+}
+
+#ShowCtnr #starFace li {
+	background: url(../img/star.png) no-repeat 0px -12px;
+}
+
+/*悬停黄色星条*/
+#showStar {
+	background: rgba(0,0,0,.4);
+}
+#showStar:hover #FaceWrapper ul li{
+	background: url(../img/star.png) no-repeat 0px -24px;
+}
+
+#ShowCtnr > li:hover #showStar {
+	/*bottom: 20px;*/
+	/*right: 20px;*/
 }
 
 /*展示信息*/

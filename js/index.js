@@ -8,8 +8,10 @@ window.onload = function() {
 	var prev = document.getElementById('prev');//前张
 	var next = document.getElementById('next');//后张
 	var imgs = document.getElementById('imgs');//相框
+	
 	// 获取changerBar对象组
 	var changeBars = document.getElementById('changeBar').getElementsByTagName('a');
+
 	/*
 		prev
 	*/
@@ -192,6 +194,31 @@ window.onload = function() {
 				});
 			}
 		}
+	}
+
+
+	/*
+		星条悬停
+	*/
+	var showStar = document.getElementById('showStar');//最外层容器对象
+	var FaceWrapper = document.getElementById('FaceWrapper');//控制前层星星长度容器
+	var stars = FaceWrapper.getElementsByTagName('li');
+	var starWidth = stars[0].clientWidth;//星星宽度
+	var startCount = stars.length;//星星个数
+
+	// 悬停位置
+	showStar.onmousemove = function(e) {
+		e = e || window.event;
+		var starInt = parseInt(e.layerX / starWidth);//整数个星星
+		var starHalf = e.layerX / starWidth * 10 % 10;//用于判断是否显示半个星星
+		// 显示星星个数:不足.5显示半星
+		if(starHalf < 5)
+			FaceWrapper.style.width = starInt * starWidth + 'px';
+		else 
+			FaceWrapper.style.width = starInt * starWidth + starWidth / 2 + 'px';
+		if(e.layerX >= showStar.clientWidth - 1)
+			FaceWrapper.style.width = showStar.clientWidth + 'px';
+
 	}
 }
 
