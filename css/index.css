@@ -33,7 +33,7 @@ body {
 				clear: both;
 			}
 /*header-top部分*/
-.header-top{
+.headerTop{
 	background: #F2F2F2;
 	height: 44px;
 	border-bottom: 1px solid #b5b5b5;
@@ -42,26 +42,26 @@ body {
 }
 /* 左侧 */
 
-.header-top  .left {
+.headerTop  .left {
 	float: left;
 	width: 50%;
 	padding: 15px auto;
 }
 
-.header-top .left > div ,.header-top .right > div{
+.headerTop .left > div ,.headerTop .right > div{
 	float: left;
 	height: 32px;
 	line-height: 32px;
 }
 
-.header-top .iconOuter {
+.headerTop .iconOuter {
 	width: 32px;
 	background: #919191;
 	border-radius: 50%;
 	margin-top: 6px;
 }
 
-.header-top .iconInner {
+.headerTop .iconInner {
 	width: 28px;
 	height: 28px;
 	background: #F2F2F2;
@@ -73,7 +73,7 @@ body {
 	text-align: center;
 }
 
-.header-top .vistorCount {
+.headerTop .vistorCount {
 	font-size: 18px;
 	font-weight: 700;
 	/*font-weight: bold;700相当于bold*/
@@ -81,70 +81,67 @@ body {
 	color: #5A5A5A;
 }
 
-.header-top .openTime {
+.headerTop .openTime {
 	margin-top: 6px;
 	font-size: 12px;
 }
 
 /* 右侧 */
-.header-top .right{
+.headerTop .right{
 	width: 50%;
 	float: right;
 }
 
-.header-top .right .bgColor{
-	background: #FA6F57;
-	color: #FA6F57;
+.headerTop .right .bgColor{
+	background: #919191;
+	color: #919191;
 }
 
-.header-top .right .iconOuter {
+.headerTop .right .iconOuter {
 	float: right;
 	margin-right: 8px;
 }
-/*搜索框容器*/
-.header-top .searchWrapper {
-	float: right !important;
-	margin: 8px;
-	width: 240px;
-	background: #919191;
-	border-radius: 20px;
+
+.headerTop .right .iconOuter:hover {
+	color: #FA6F57;
+	background: #FA6F57;
 }
+
 /*搜索框*/
-.header-top .searchBox  {
-	background: #fff;
-	width: 232px;
+.headerTop .searchBox  {
+	float: right !important;
+	width: 240px;
 	height: 24px;
-	margin: 4px auto;
-	padding: 0;
+	margin: 4px 10px;
+	border: 2px solid #919191;
 	border-radius: 20px;
 	position: relative;
 }
 
-.header-top .searchBox span {
-	position: absolute;
-	top: 6px;
-	left: 6px;
-	width: 22px;
-	height: 24px;
+.headerTop .searchBox span {
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 20px;
+	width: 10%;
+	height: 80%;
+	margin-bottom: 8px;
+	margin-left: 12px;
 } 
 
-.header-top .searchBox span:hover {
+.headerTop .searchBox span:hover {
 	color: #FA6F57;
 }
 
-
-
-.header-top .searchBox input {
-	display: block;
-	float: right;
-	width: 196px;
-	background: #fff;
+.headerTop .searchBox input {
+	margin-bottom: 4px;
+	margin-left: 4px;
+	vertical-align: middle;
+	display:inline-block;
+	width: 70%;
 	outline: none;
 	border: none;
-	height: 20px;
-	padding: 2px;
-	position: absolute;
-	margin-left: 22px;
+	height: 100%;
+	background-color: transparent;
 }
 
 /*////////////////////////////////////2016.10.20*/
@@ -223,7 +220,6 @@ body {
 
 /*banner区*/
 #banner {
-	width: 100%;
 	height: 492px;
 	position: relative;
 	overflow: hidden;
@@ -838,12 +834,20 @@ body {
 }
 
 /*展示区图片,女*/
+.women , .man {
+	margin-top: 20px;
+}
 
 #ShowCtnr {
 	width: 4688px;
 }
 
 #ShowCtnr > li {
+	float: left;
+	margin-right: 40.8px;
+}
+
+#ShowCtnr .showPic {
 	position: relative;
 	float: left;
 	width: 260px;
@@ -921,9 +925,8 @@ body {
 /*星条*/
 #ShowCtnr #showStar {
 	position: absolute;
-	bottom: 20px;
+	bottom: -20px;
 	right: 20px;
-	/*height: 12px;*/
 	transition: all 0.4s;
 }
 
@@ -937,11 +940,6 @@ body {
 	height: 12px;
 	background: url(../img/star.png) no-repeat 0 0;
 	float: left;
-}
-
-#starBg {
-	position: relative;
-	background: rgba(0,0,0,.);
 }
 
 /*前景橙色星条*/
@@ -962,16 +960,13 @@ body {
 }
 
 /*悬停黄色星条*/
-#showStar {
-	background: rgba(0,0,0,.4);
-}
 #showStar:hover #FaceWrapper ul li{
 	background: url(../img/star.png) no-repeat 0px -24px;
 }
 
 #ShowCtnr > li:hover #showStar {
-	/*bottom: 20px;*/
-	/*right: 20px;*/
+	bottom: 20px;
+	right: 20px;
 }
 
 /*展示信息*/
