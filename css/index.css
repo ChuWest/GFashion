@@ -219,6 +219,8 @@ body {
 
 /*banner区*/
 #banner {
+	width: 1366px;
+	margin: 0 auto;
 	height: 492px;
 	position: relative;
 	overflow: hidden;
@@ -1162,11 +1164,11 @@ body {
 
 /*信息区*/
 #information {
-	width: 100%;
 	overflow: hidden;
 	position: relative;
 	margin-top: 50px;
 	background: #F2F2F2;
+	border-bottom: 1px solid #E0E0E0;
 }
 
 #information ul {
@@ -1177,9 +1179,6 @@ body {
 #information .infWrapper > li {
 	float: left;
 	width: 282px;
-	height: 400px;
-	background: #0cc;
-	word-wrap:break-word;
 	margin-right: 14px;
 	text-align: left;
 	color: #666;
@@ -1193,7 +1192,242 @@ body {
 /*信息详细*/
 
 #information .infText {
+	letter-spacing: -1px;
 	margin-top: 20px;
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 	font-size: 12px;
 }
+
+#information .ourStore {
+	line-height: 2;
+}
+
+#information .week li {
+	margin-top: 15px;
+	word-wrap:break-word;
+}
+
+#information .week li:last-child {
+	margin-top: 50px;
+}
+
+#information .openTime li {
+	cursor: pointer;
+	margin-top: 14px;
+}
+
+#information .openTime li a {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: 12px;
+	letter-spacing: 1px;
+	color: #666;
+}
+
+#information .openTime li:hover {
+	margin-left: 10px;
+	color: #FA6F57;
+}
+
+#information .openTime li:hover a {
+	color: #FA6F57;
+}
+
+/*联系区*/
+.contact {
+	padding-top: 40px;
+	background: #F2F2F2;
+	/*overflow: hidden;	*/
+}
+
+/*info*/ 
+#contactCtnr {
+	padding-bottom: 50px;
+	width: 1230px;
+	position: relative;
+	overflow: hidden;
+	color: #666;
+}
+
+#contactCtnr > li {
+	margin-right: 20px;
+	float: left;
+}
+
+#contactCtnr  h1 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#contactCtnr > ul {
+	margin-top: 20px;
+}
+
+#contactCtnr ul li {
+	margin-top: 12px;
+}
+
+#contactCtnr .conSide {
+	width: 282px;
+}
+
+#contactCtnr .conSide ul li span:first-child , #contactCtnr .conContent div span {
+	font-size: 16px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	border: 2px solid #666;
+	border-radius: 50%;
+}
+
+/*show more*/
+#contactCtnr .conContent {
+	position: relative;
+	width: calc( 100% - 646px);
+	height: 100%;
+}
+#contactCtnr .conContent img {
+	width: 100%;
+	height: 100%;
+}
+
+#contactCtnr .conContent div {
+	width: 120px;
+	position: absolute;
+	bottom: 20px;
+	right: 18px;
+	background: #1f1f1f;
+	border-radius: 0.25em;
+	border-bottom-left-radius: 1.25em;
+	border-top-left-radius: 1.25em;
+}
+
+#contactCtnr .conContent div a {
+	line-height: 30px;
+	color: #666;
+	font-size: 14px;
+}
+
+/*悬停*/
+#contactCtnr .conContent div:hover {
+	transition:color 2s;
+	background: #000;
+	-webkit-animation: breathAni 1.6s 0.4s infinite;
+	-o-animation: breathAni 1.6s 0.4s infinite;
+	animation: breathAni 1.6s 0.4s infinite;
+}
+
+/*呼吸动画*/
+@keyframes breathAni {
+	from {
+		color:#FA6F57;
+	},
+	to {
+		color:#FA6F57;
+	}
+}
+
+@-webkit-keyframes breathAni {
+	from {
+		color:#FA6F57;
+	},
+	to {
+		color:#FA6F57;
+	}
+}
+
+#contactCtnr .conContent div:hover span {
+	border: 2px solid #FA6F57;
+}	
+
+#contactCtnr .conContent div:hover a {
+	color: #FA6F57;
+}	
+
+/*邮件*/
+#contactCtnr .email li {
+	line-height: 1.8;
+}
+
+#contactCtnr .email li.emailCtnr {
+	border-radius: 2px;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	margin-bottom: 20px;
+}
+
+#contactCtnr .email li input {
+	vertical-align: middle;
+	line-height: 2.5em;
+	height: 2.5em;
+	outline: none;
+	border: none;
+	text-indent: 12px;
+}
+
+#contactCtnr .email li input[type="text"] {
+	width: 60%;
+}
+
+#contactCtnr .email li input[type="button"] {
+	padding-left: 6px;
+	font-weight: 600;
+	color: #fff;
+	text-align: left;
+	width: 40%;
+	background: #FA6F57;
+	border-radius: 2px;
+}
+
+#contactCtnr .email li input[type="button"]:hover {
+	background: #f9654c;
+}
+
+/*footer*/
+#footer {
+	margin-top: 20px;
+	overflow: hidden;
+	font-size: 14px;
+	color: #666;
+}
+
+#footer ul {
+	width: 50%;
+	float: left;
+}
+
+#footer ul li {
+	transition:all .4s;
+	float: left;
+}
+
+#footer ul li:not(.partition):hover {
+	cursor: pointer;
+	color: #FA6F57;
+}
+
+#footer ul li.partition {
+	margin: 0 10px;
+}
+
+#footer div {
+	vertical-align: middle;
+	width: 30%;
+	float: right;
+}
+
+#footer div span {
+	vertical-align: top;
+	margin-left: 53px;
+	margin-right: 10px;
+}
+
+#footer + span {
+	display: inline-block;
+	padding-bottom: 20px;
+	font-size: 12px;
+	color: #919191;
+}
+
