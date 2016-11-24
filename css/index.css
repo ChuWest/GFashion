@@ -21,7 +21,6 @@ body {
 .container {
 	margin: 0 auto;
 	width: 1170px;
-	overflow: hidden;
 	color: #919191;
 }
 
@@ -31,7 +30,7 @@ body {
 				display: block;
 				clear: both;
 			}
-/*header-top部分*/
+/*headerTop部分*/
 .headerTop{
 	background: #F2F2F2;
 	height: 44px;
@@ -97,6 +96,7 @@ body {
 }
 
 .headerTop .right .iconOuter {
+	position: relative;
 	float: right;
 	margin-right: 8px;
 }
@@ -105,6 +105,115 @@ body {
 	color: #FA6F57;
 	background: #FA6F57;
 }
+
+/*分享悬停*/
+.headerTop .right .shareCntr:hover .shareWith {
+	height: 48px;
+}
+
+.headerTop .right .shareWith {
+	height: 0;
+	overflow: hidden;
+	width: 230px;
+	padding: 0 20px;
+	position: absolute;
+	background: #FA6F57;
+	top: 38px;
+	right: 0;
+	z-index: 9999;
+	transition:all 0.4s;
+}
+
+/*小三角*/
+.triangle {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom: none;
+	border-top: 10px solid #fff;
+	top: 0;
+	right: 6px;
+}
+
+.headerTop .right .shareWith span {
+	cursor: pointer;
+	vertical-align: middle;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #fff;
+	color: #fff;
+	margin: 10px 4px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	border-radius: 50%;
+	transition:all 0.4s;
+}
+
+.headerTop .right .shareWith span:hover {
+	color: #666;
+	border:2px solid #919191;
+	background: #000;
+}
+
+/*购物车悬停*/
+.headerTop .right .shoppingCart {
+	height: 0;
+	overflow: hidden;
+	width: 252px;
+	position: absolute;
+	top: 38px;
+	right: 0;
+	background: #FA6F57;
+	text-align: center;
+	z-index: 9999;
+	transition:all 0.4s;
+}
+
+
+.headerTop .right .shoppingCart p {
+	margin-top: 8px;
+	color: #fff;
+}
+
+.headerTop .right .shoppingCart .shopMid {
+	margin: 8px auto;
+	width: 80%;
+	border-top: 1px solid #fff;
+	background: #fff;
+}
+
+.headerTop .right .shoppingCart span {
+	display: inline-block;
+	width: 40%;
+	color: #1f1f1f;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.headerTop .right .shoppingCart li:last-child {
+	padding: 5px;
+	margin-right: 36px;
+	text-align: right;
+}
+.headerTop .right .shoppingCart a {
+	position: relative;
+	left: 16px;
+	padding: 6px 14px;
+	box-shadow: 0 0 5px 5px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,.3) inset;
+	background: #1f1f1f;
+	font-size: 14px;
+	border-radius:.8em;
+	color: #fff;
+}
+
+.headerTop .right .shopWrap:hover .shoppingCart {
+	height: 131px;
+}
+
 
 /*搜索框*/
 .headerTop .searchBox  {
@@ -155,33 +264,60 @@ body {
 
 /*logo*/
 .navWrapper .navLogo {
+	position: relative;
 	float: left;
 	width: 20%;
 	margin-top: 40px;
 }
 
+/*账户相关*/
+.navAccount {
+	position: absolute;
+	right: 10px;
+	text-align: right;
+}
+
+/*季节*/
+.navAccount li input {
+	width: 18px;
+	height: 18px;
+	font-size: 10px;
+	margin: 20px 0 0 2px;
+	line-height: 18px;
+	text-align: center;
+	color: #777;
+	background: #eee;
+	border: none;
+	outline: none;
+	transition:all 0.4s;
+	border-radius: 2px;
+}
+
+/*账户信息*/
+.navAccount ul li {
+	float: left;
+	margin-left: 14px;
+	margin-top: 10px;
+}
+
+.navAccount ul li a {
+	transition:all 0.4s;
+	color: #777;
+}
+
+.navAccount ul li:hover a {
+	color: #FA6F57;
+}
+
+.navAccount li input:hover {
+	background: #1f1f1f;
+	color: #fff;
+}
+
+
 /*菜单*/
 .navWrapper {
 	position: relative;
-}
-
-.navWrapper .navMenu {
-	float: right;
-}
-
-/*节令选择*/
-.choice span {
-	float: right;
-	height: 18px;
-	width: 36px;
-	margin-right: 10px;
-	background: #eee;
-	text-align: center;
-	line-height: 18px;
-}
-
-.choice span a {
-	clear: #eee;
 }
 
 .navWrapper .menu {
@@ -219,6 +355,8 @@ body {
 
 /*banner区*/
 #banner {
+	width: 1366px;
+	margin: 0 auto;
 	height: 492px;
 	position: relative;
 	overflow: hidden;
@@ -1162,11 +1300,11 @@ body {
 
 /*信息区*/
 #information {
-	width: 100%;
 	overflow: hidden;
 	position: relative;
 	margin-top: 50px;
 	background: #F2F2F2;
+	border-bottom: 1px solid #E0E0E0;
 }
 
 #information ul {
@@ -1177,9 +1315,6 @@ body {
 #information .infWrapper > li {
 	float: left;
 	width: 282px;
-	height: 400px;
-	background: #0cc;
-	word-wrap:break-word;
 	margin-right: 14px;
 	text-align: left;
 	color: #666;
@@ -1193,7 +1328,242 @@ body {
 /*信息详细*/
 
 #information .infText {
+	letter-spacing: -1px;
 	margin-top: 20px;
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 	font-size: 12px;
 }
+
+#information .ourStore {
+	line-height: 2;
+}
+
+#information .week li {
+	margin-top: 15px;
+	word-wrap:break-word;
+}
+
+#information .week li:last-child {
+	margin-top: 50px;
+}
+
+#information .openTime li {
+	cursor: pointer;
+	margin-top: 14px;
+}
+
+#information .openTime li a {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: 12px;
+	letter-spacing: 1px;
+	color: #666;
+}
+
+#information .openTime li:hover {
+	margin-left: 10px;
+	color: #FA6F57;
+}
+
+#information .openTime li:hover a {
+	color: #FA6F57;
+}
+
+/*联系区*/
+.contact {
+	padding-top: 40px;
+	background: #F2F2F2;
+	/*overflow: hidden;	*/
+}
+
+/*info*/ 
+#contactCtnr {
+	padding-bottom: 50px;
+	width: 1230px;
+	position: relative;
+	overflow: hidden;
+	color: #666;
+}
+
+#contactCtnr > li {
+	margin-right: 20px;
+	float: left;
+}
+
+#contactCtnr  h1 {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#contactCtnr > ul {
+	margin-top: 20px;
+}
+
+#contactCtnr ul li {
+	margin-top: 12px;
+}
+
+#contactCtnr .conSide {
+	width: 282px;
+}
+
+#contactCtnr .conSide ul li span:first-child , #contactCtnr .conContent div span {
+	font-size: 16px;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	border: 2px solid #666;
+	border-radius: 50%;
+}
+
+/*show more*/
+#contactCtnr .conContent {
+	position: relative;
+	width: calc( 100% - 646px);
+	height: 100%;
+}
+#contactCtnr .conContent img {
+	width: 100%;
+	height: 100%;
+}
+
+#contactCtnr .conContent div {
+	width: 120px;
+	position: absolute;
+	bottom: 20px;
+	right: 18px;
+	background: #1f1f1f;
+	border-radius: 0.25em;
+	border-bottom-left-radius: 1.25em;
+	border-top-left-radius: 1.25em;
+}
+
+#contactCtnr .conContent div a {
+	line-height: 30px;
+	color: #666;
+	font-size: 14px;
+}
+
+/*悬停*/
+#contactCtnr .conContent div:hover {
+	transition:color 2s;
+	background: #000;
+	-webkit-animation: breathAni 1.6s 0.4s infinite;
+	-o-animation: breathAni 1.6s 0.4s infinite;
+	animation: breathAni 1.6s 0.4s infinite;
+}
+
+/*呼吸动画*/
+@keyframes breathAni {
+	from {
+		color:#FA6F57;
+	},
+	to {
+		color:#FA6F57;
+	}
+}
+
+@-webkit-keyframes breathAni {
+	from {
+		color:#FA6F57;
+	},
+	to {
+		color:#FA6F57;
+	}
+}
+
+#contactCtnr .conContent div:hover span {
+	border: 2px solid #FA6F57;
+}	
+
+#contactCtnr .conContent div:hover a {
+	color: #FA6F57;
+}	
+
+/*邮件*/
+#contactCtnr .email li {
+	line-height: 1.8;
+}
+
+#contactCtnr .email li.emailCtnr {
+	border-radius: 2px;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	margin-bottom: 20px;
+}
+
+#contactCtnr .email li input {
+	vertical-align: middle;
+	line-height: 2.5em;
+	height: 2.5em;
+	outline: none;
+	border: none;
+	text-indent: 12px;
+}
+
+#contactCtnr .email li input[type="text"] {
+	width: 60%;
+}
+
+#contactCtnr .email li input[type="button"] {
+	padding-left: 6px;
+	font-weight: 600;
+	color: #fff;
+	text-align: left;
+	width: 40%;
+	background: #FA6F57;
+	border-radius: 2px;
+}
+
+#contactCtnr .email li input[type="button"]:hover {
+	background: #f9654c;
+}
+
+/*footer*/
+#footer {
+	margin-top: 20px;
+	overflow: hidden;
+	font-size: 14px;
+	color: #666;
+}
+
+#footer ul {
+	width: 50%;
+	float: left;
+}
+
+#footer ul li {
+	transition:all .4s;
+	float: left;
+}
+
+#footer ul li:not(.partition):hover {
+	cursor: pointer;
+	color: #FA6F57;
+}
+
+#footer ul li.partition {
+	margin: 0 10px;
+}
+
+#footer div {
+	vertical-align: middle;
+	width: 30%;
+	float: right;
+}
+
+#footer div span {
+	vertical-align: top;
+	margin-left: 53px;
+	margin-right: 10px;
+}
+
+#footer + span {
+	display: inline-block;
+	padding-bottom: 20px;
+	font-size: 12px;
+	color: #919191;
+}
+

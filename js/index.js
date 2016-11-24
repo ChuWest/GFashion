@@ -220,8 +220,20 @@ window.onload = function() {
 			}
 		})(i);
 	}
-	
+
+
+	/*
+		登录login
+	*/	
+
+	$('#login').click(function(event) {
+		popWin.showWin("350","530","LOG IN","login.html");
+	});
+
+
+
 }
+
 
 
 

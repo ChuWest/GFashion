@@ -9,27 +9,48 @@
 </head>
 <body>
 	<!-- 顶部条开始 -->
-	<div class="headerTop">
+	<div class="headerTop">    
 		<!-- 左侧 -->
-		<div class="container">
+		<div class="container clearfix">
 			<div class="left">
 				<!-- 字体图标 -->
 				<div class="iconOuter ">
-					<div class="icon-eye iconInner"></div>
+					<div class="icon-quill iconInner"></div>
 				</div>
-				<div class="vistorCount">+444(100)</div>
+				<div class="vistorCount">+444 (100) 1234</div>
 				<div class="openTime">(Mon- Fri: 09.00 - 21.00)</div>
 			</div>
 			<!-- 左侧结束 -->
 			<!-- 搜索框 -->
 			<div class="right">
-				<!-- 分享 -->
-				<div class="iconOuter bgColor">
-					<div class="icon-cart iconInner"></div>
-				</div>
 				<!-- 购物车 -->
-				<div class="iconOuter">
+				<div class="iconOuter bgColor shopWrap">
+					<div class="icon-cart iconInner"></div>
+					<!-- 购物车悬停 -->
+					<ul class=" shoppingCart">
+						<div class="triangle"></div>
+						<li><p>Your cart is currently empty.</p></li>
+						<li class="shopMid">
+							<span>TOTAL</span>
+							<span>0</span>
+						</li>
+						<li><a href="">View Cart</a></li>
+					</ul>
+					
+				</div>
+				
+				<!-- 分享 -->
+				<div class="iconOuter shareCntr">
 					<div class="icon-share2 iconInner"></div>
+					<!-- 分享悬停 -->
+					<div class="shareWith">
+						<div class="triangle"></div>
+						<span class="icon icon-facebook"></span>
+						<span class="icon icon-twitter"></span>
+						<span class="icon icon-google-plus"></span>
+						<span class="icon icon-youtube"></span>
+						<span class="icon icon-feed2"></span>
+					</div>
 				</div>
 				<!-- 检索 -->
 				<div class="searchBox">
@@ -48,16 +69,27 @@
 		<div class="navLogo">
 			<a href="#"><img src="img/logo.png" alt=""></a>
 		</div>
-		<!-- 个人信息 -->
-		<div class="navMenu">
-			<div class="choice">
-				<span class="current" ><a href="#">当季</a></span>
-				<span class="outOfStyle"><a href="#">过季</a></span>
-			</div>
-			<div class="account">
-				
-			</div>
-		</div>
+		<!-- 账户相关 -->
+		<ul class="navAccount">
+			<li>
+				<input type="button" value="春">
+				<input type="button" value="夏">
+				<input type="button" value="秋">
+				<input type="button" value="冬">
+			</li>
+			<li>
+				<ul>
+					<li><a href="">MY ACCOUNT</a></li>
+					<li><a href="">MY WISHLIST</a></li>
+					<li><a id="login" href="javascript:;">LOG IN</a></li>
+					<li><a href="">LOG OUT</a></li>
+				</ul>
+			</li>
+		</ul>
+		<!-- 登录login -->
+		<iframe src="" frameborder="0"></iframe>
+		<!-- /登录login -->
+
 		<!-- 导航菜单 -->
 		<div class="menu">
 			<ul>
@@ -615,7 +647,7 @@
 			<ul class="infWrapper">
 				<li>
 					<h1>OUR STORE</h1>
-					<div class="infText">
+					<div class="infText ourStore">
 						Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.
 						<br>
 						<br>
@@ -624,34 +656,101 @@
 				</li>
 				<li>
 					<h1>OPENING TIME</h1>
-					<ul class="infText">
+					<ul class="infText week">
 						<li>Monday-Friday:-------------------------9.00 to 18.00</li>
 						<li>Saturday:--------------------------------10.00 to 16.00</li>
 						<li>Sunday:----------------------------------10.00 to 16.00</li>
-						<p>Every 30 day of month Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+						<li>Every 30 day of month Lorem ipsum dolor sit amet,
+						<br> consectetur adipiscing.</li>
 					</ul>
 				</li>
 				<li>
 					<h1>OPENING TIME</h1>
-					<ul class="infText">
-						<li class="icon "><a href="#">Affiliate</a></li>
-						<li class="icon "><a href="#">Shipping</a></li>
-						<li class="icon "><a href="#">Shop support</a></li>
-						<li class="icon "><a href="#">Customer Service</a></li>
-						<li class="icon "><a href="#">Payment & Return</a></li>
-						<li class="icon "><a href="#">Terms & Conditions</a></li>
+					<ul class="infText openTime">
+						<li class="icon icon-stop"><a href="#">Affiliate</a></li>
+						<li class="icon icon-stop"><a href="#">Shipping</a></li>
+						<li class="icon icon-stop"><a href="#">Shop support</a></li>
+						<li class="icon icon-stop"><a href="#">Customer Service</a></li>
+						<li class="icon icon-stop"><a href="#">Payment & Return</a></li>
+						<li class="icon icon-stop"><a href="#">Terms & Conditions</a></li>
 					</ul>
 				</li>
 				<li>
 					<h1>Position</h1>
-					<div class="infText">地图</div>
+					<div class="infText">地图,失败小游戏</div>
 				</li>
 			</ul>
 		</div>
 	</div>
-	<hr>
 	<!-- /信息区 -->
+
+	<!-- 联系区 -->
+	<div class="contact">
+		<div class="width">
+			<ul id="contactCtnr">
+				<li class="conSide">
+					<h1>CONTACT INFO</h1>
+					<ul>
+						<li>
+							<span class="icon icon-location"></span>
+							<span>Lorem ipsum maecenas dapibus luctus 
+							<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;euismod 133/2 New York City</span>
+						</li>
+						<li>
+							<span class="icon icon-phone"></span>
+							<span>(+00)1344356-675</span>
+						</li>
+						<li>
+							<span class="icon icon-envelop"></span>
+							<span>support@themina.ne</span>t
+						</li>
+					</ul>
+				</li>
+				<li class="conContent">
+					<img src="img/images/demo/images-footer.jpg" alt="">
+					<div>
+						<span class="icon icon-circle-right"></span>
+						<a href="">Show More</a>
+					</div>
+				</li>
+				<li class="conSide email">
+					<ul>
+						<h1>NEWLETTER</h1>
+						<li>Subscribe to be the first to know about Sales, Events, and Exclusive Offers!</li>
+						<li class="emailCtnr">
+							<input type="text" placeHolder="Enter your email..."><input type="button" value="Subscribe">
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /联系区 -->
+
+	<!-- footer -->
+	<div class="width">
+		<div id="footer">
+			<ul>
+				<li>Site Map</li>
+				<li class="partition">/</li>
+				<li>FAQ</li>
+				<li class="partition">/</li>
+				<li>Work For Us</li>
+				<li class="partition">/</li>
+				<li>Contact Us</li>
+			</ul>
+			<div>
+				<span>PAYMENT ACCEPT</span>
+				<img src="img/visacard.png" alt="">
+				<img src="img/mastercard.png" alt="">
+				<img src="img/paypal.png" alt="">
+			</div>
+		</div>
+		<span>&copy; 2016 Gfashion xingrennil. All Rights Reserved.</span>
+	</div>
+	<!-- /footer -->
 	<script type="text/javascript" src='js/jquery.js'></script>
+	<script type="text/javascript" src="js/popwin.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
