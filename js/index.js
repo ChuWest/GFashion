@@ -3,7 +3,7 @@ window.onload = function() {
 
 	var index = 0;//当前图片
 	var imgWidth = 1366;//图片宽度
-	var imgCount = document.getElementById('imgs').getElementsByTagName('li').length;//图片数量
+	var womenImgCount = document.getElementById('imgs').getElementsByTagName('li').length;//图片数量
 	var isAnimate = false;//动画同步标示
 	var prev = document.getElementById('prev');//前张
 	var next = document.getElementById('next');//后张
@@ -24,7 +24,7 @@ window.onload = function() {
 		// 索引递减
 		index --;
 		if(index < 0)
-			index = imgCount - 3;
+			index = womenImgCount - 3;
 		animate(imgWidth);
 		// 文字动画函数
 		textAnimate(index);
@@ -41,7 +41,7 @@ window.onload = function() {
 		delAnimate(index);
 		// 索引递减
 		index ++;
-		if(index > imgCount - 3)
+		if(index > womenImgCount - 3)
 			index = 0;
 		animate(-imgWidth);
 
@@ -95,9 +95,9 @@ window.onload = function() {
 	// 			position = imgs.style.left = endPos  + 'px';
 	// 			// 到达替身
 	// 			if( parseInt(position) == 0)
-	// 				imgs.style.left = -imgWidth * (imgCount -2) + 'px';
+	// 				imgs.style.left = -imgWidth * (womenImgCount -2) + 'px';
 				
-	// 			if( parseInt(position) == -imgWidth * (imgCount - 1)) {
+	// 			if( parseInt(position) == -imgWidth * (womenImgCount - 1)) {
 	// 				imgs.style.left = -imgWidth + 'px';
 	// 			}
 	// 		} 
@@ -117,8 +117,8 @@ window.onload = function() {
 		var endPos = parseInt(imgs.style.left) + offset + 'px';
 		//位置判定
 		if( parseInt(endPos) > -imgWidth)
-			endPos = - imgWidth * (imgCount - 2) + 'px';
-		if( parseInt(endPos) < - imgWidth * (imgCount - 2) )
+			endPos = - imgWidth * (womenImgCount - 2) + 'px';
+		if( parseInt(endPos) < - imgWidth * (womenImgCount - 2) )
 			endPos = -imgWidth + 'px';
 		imgs.style.left = endPos;
 		hightLight();
@@ -231,7 +231,129 @@ window.onload = function() {
 	});
 
 
+	/*
+		点击放大图片,事件委托
+	*/
 
+	//女装部分
+	$('.showCtnr').on('click', '.magnifer', function(event) {
+		$('#pictureCoverWrap').css('display','block');
+		$('icon-arrow-left2#pictureCover').children('img').attr('src',$(this).parent('.showHider').siblings().first().get(0).src);
+	});
+
+	// 关闭放大图片蒙版
+	$('#shrink').click(function(event) {
+		$('#pictureCoverWrap').css('display','none');
+	});
+
+
+	/*
+		加入购物车动画
+	*/
+
+	$('.showCtnr').on('click', '.icon-cart', function(event) {
+		var that = $(this).parent().prev().prev();
+		that.css('left',event.clientX - event.offsetX + 'px').css('top',event.clientY - event.offsetY + 'px');
+		that.addClass('cartani');
+		setTimeout(function(){
+			that.css('left',2000+ 'px').css('top',1000 + 'px');
+			that.removeClass('cartani');//清除样式反复添加
+		},1800);
+	});
+
+	/*
+		加载更多
+	*/
+
+	var womenPic = 0;//计数,女
+	var menPic = 0;//男
+	var womenPicCount = $('.women .showCtnr > li').length;//总图片数,女
+	var menPicCount = $('.men .showCtnr > li').length;
+	var womenImgCount = 4;//页面显示图片数,女
+	var menImgCount = 5;//
+
+	// 位移距离
+	var margin0 = $('.women .showCtnr > li').eq(0).css('marginRight');
+	var margin1 = $('.men .showCtnr > li').eq(0).css('marginRight');
+	var womenWidth = $('.women .showCtnr > li').get(0).clientWidth + parseInt(margin0);
+	var menWidth = $('.men .showCtnr > li').get(0).clientWidth + parseInt(margin1);
+	//womennext 
+	$('.womenNext').click(function(event) {
+		//动画正在运行则返回
+		if($('.women .showCtnr').is(":animated")) {return;}
+		womenPic ++;
+		// 当前位置
+		var posCurrent = $('.women .showCtnr').get(0).style.left;
+		//判断是否到最后
+		if(womenPic > womenPicCount - womenImgCount) {
+			posEnd = 0;
+			womenPic = 0;
+		}
+		else {
+			posEnd = parseInt(posCurrent) - womenWidth;//终点位置
+		}
+		$('.women .showCtnr').animate({left:posEnd}, 800);
+		//小图放大动画
+		$('.women .showCtnr > li').eq(womenPic + womenImgCount - 1).addClass('fullPic');
+	});
+
+	//womenprev
+	$('.womenPrev').click(function(e){
+		if($('.women .showCtnr').is(":animated")) {return;}
+		womenPic --;
+		// 当前位置
+		var posCurrent = $('.women .showCtnr').get(0).style.left;
+		//判断是否到最后
+		if(womenPic <= 0) {
+			posEnd = - (womenPicCount - womenImgCount) * womenWidth;
+			womenPic = womenPicCount - womenImgCount + 1;
+		}
+		else {
+			posEnd = parseInt(posCurrent) + womenWidth;//终点位置
+		}
+		$('.women .showCtnr').animate({left:posEnd}, 800);
+		//小图放大动画
+		$('.women .showCtnr > li').addClass('fullPic');
+	});
+
+	//mennext 
+	$('.menNext').click(function(event) {
+		//动画正在运行则返回
+		if($('.men .showCtnr').is(":animated")) {return;}
+		menPic ++;
+		// 当前位置
+		var posCurrent = $('.men .showCtnr').get(0).style.left;
+		//判断是否到最后
+		if(menPic > menPicCount - menImgCount) {
+			posEnd = 0;
+			menPic = 0;
+		}
+		else {
+			posEnd = parseInt(posCurrent) - menWidth;//终点位置
+		}
+		$('.men .showCtnr').animate({left:posEnd}, 800);
+		//小图放大动画
+		$('.men .showCtnr > li').eq(menPic + menImgCount - 1).addClass('fullPic');
+	});
+
+	//menprev
+	$('.menPrev').click(function(e){
+		if($('.men .showCtnr').is(":animated")) {return;}
+		menPic --;
+		// 当前位置
+		var posCurrent = $('.men .showCtnr').get(0).style.left;
+		//判断是否到最后
+		if(menPic <= 0) {
+			posEnd = - (menPicCount - menImgCount) * menWidth;
+			menPic = menPicCount - menImgCount + 1;
+		}
+		else {
+			posEnd = parseInt(posCurrent) + menWidth;//终点位置
+		}
+		$('.men .showCtnr').animate({left:posEnd}, 800);
+		//小图放大动画
+		$('.men .showCtnr > li').addClass('fullPic');
+	});
 }
 
 

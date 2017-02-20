@@ -834,6 +834,47 @@ body {
 }
 
 /*女装区*/
+
+/*展示区放大蒙版*/
+#pictureCoverWrap {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.6);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	display: none;
+	font-size: 24px;
+	color: #CC0000;
+	text-align: center;
+	line-height: 100%;
+}
+
+#pictureCover {
+	position: relative;
+	width: 30%;
+	height: 76%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%,-50%);
+}
+
+#pictureCoverWrap span {
+	background: rgba(0,0,0,.2);
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+	z-index: 99999;
+}
+
+#pictureCover img {
+	position: relative;
+	width: 86%;
+	height: 100%;
+}
+
 .showText {
 	position: relative;
 	background: #E0E0E0;
@@ -973,16 +1014,50 @@ body {
 	margin: 20px auto 20px;
 }
 
-#ShowCtnr {
+.showCtnr {
+	position: relative;
 	width: 4688px;
 }
 
-#ShowCtnr > li {
+.showCtnr > li {
 	float: left;
 	margin-right: 40.8px;
 }
 
-#ShowCtnr .showPic {
+.showCtnr li.miniPic {
+	overflow: hidden;
+	width: 40px;
+	height: 20px;
+}
+
+/*加载更多的全图显示动画*/
+@-webkit-keyframes showFullPicW {
+	to {
+		width: 262px;
+		height: 512px;
+	}
+}
+
+@-webkit-keyframes showFullPicM {
+	to {
+		width: 212px;
+		height: 512px;
+	}
+}
+/*女装放大*/
+.women .showCtnr li.fullPic {
+	-webkit-animation: showFullPicW 1.2s forwards;
+	-o-animation: showFullPicW 1.2s forwards;
+	animation: showFullPicW 1.2s forwards;;
+}
+/*男装放大*/
+.men .showCtnr li.fullPic {
+	-webkit-animation: showFullPicM 1.2s forwards;
+	-o-animation: showFullPicM 1.2s forwards;
+	animation: showFullPicM 1.2s forwards;;
+}
+
+.showCtnr .showPic {
 	position: relative;
 	float: left;
 	width: 260px;
@@ -997,28 +1072,23 @@ body {
 	overflow: hidden;
 }
 
-#ShowCtnr .picBg1 {
+.showCtnr .picBg1 {
 	background: url(../img/images/women/basic/688086-0286_1.jpg) no-repeat center center;
 	background-size: cover;
 }
 
-#ShowCtnr .picBg2 {
+.showCtnr .picBg2 {
 	background: url(../img/images/women/basic/848099-0067_1.jpg) no-repeat center center;
 	background-size: cover;
 }
 
-#ShowCtnr .picBg3 {
-	/*??????????????????????????????*/
+.showCtnr .picBg3 {
 	background: url(../img/images/women/basic/589550-0014_1.jpg) no-repeat center center;
 	background-size: cover;
 }
 
-#ShowCtnr img {
-	display: none;
-}
-
 /*sale图章*/
-#ShowCtnr .showSale {
+.showCtnr .showSale {
 	position: absolute;
 	top: 30px;
 	left: 15px;
@@ -1032,7 +1102,7 @@ body {
 }
 
 /*放大镜+购物车*/
-#ShowCtnr .showHider {
+.showCtnr .showHider {
 	transition: all 0.4s;
 	position: absolute;
 	top: 78px;
@@ -1040,11 +1110,39 @@ body {
 	color: #fff;
 }
 
-#ShowCtnr .showCover:hover .showHider{
+.showCtnr .showCover:hover .showHider{
 	left: 15px;
 }
 
-#ShowCtnr .showHider div {
+/*购物车动画*/
+
+.showCtnr img {
+	display: block;
+	width: 160px;
+	height: 200px;
+	opacity: .8;
+	position: fixed;
+	z-index: 9999;
+}
+
+@-webkit-keyframes cartAni {
+	to {
+		position: fixed;
+		left: 1100px;
+		top: 20px;
+		width: 200px;
+		height: 100px;
+		opacity: 0;
+	}
+}
+
+.showCtnr .cartani {
+	-webkit-animation: cartAni 1.4s forwards;
+	-o-animation: cartAni 1.4s forwards;
+	animation: cartAni 1.4s forwards;
+}
+
+.showCtnr .showHider div {
 	width: 44px;
 	border: 2px solid #919191;
 	border-radius: 50%;
@@ -1057,12 +1155,12 @@ body {
 	cursor: pointer;
 }
 
-#ShowCtnr .showHider div:hover {
+.showCtnr .showHider div:hover {
 	background: #1f1f1f;
 }
 
 /*蒙板*/
-#ShowCtnr .showCover {
+.showCtnr .showCover {
 	width: 100%;
 	cursor: pointer;
 	height: 100%;
@@ -1070,24 +1168,24 @@ body {
 	transition:all 0.2s;
 }
 
-#ShowCtnr .showCover:hover {
+.showCtnr .showCover:hover {
 	background: rgba(0,0,0,.3);
 }
 
 /*星条*/
-#ShowCtnr #showStar {
+.showCtnr #showStar {
 	position: absolute;
 	bottom: -20px;
 	right: 20px;
 	transition: all 0.4s;
 }
 
-#ShowCtnr #showStar ul {
+.showCtnr #showStar ul {
 	position: relative;
 	overflow: hidden;
 }
 /*背景黑色星条*/
-#ShowCtnr #showStar li {
+.showCtnr #showStar li {
 	width: 12px;
 	height: 12px;
 	background: url(../img/star.png) no-repeat 0 0;
@@ -1095,19 +1193,19 @@ body {
 }
 
 /*前景橙色星条*/
-#ShowCtnr #FaceWrapper {
+.showCtnr #FaceWrapper {
 	position: absolute;
 	top: 0;
 	width: 54px;
 	overflow: hidden;
 }
 
-#ShowCtnr #starFace {
+.showCtnr #starFace {
 	width: 60px;
 	height: 12px;
 }
 
-#ShowCtnr #starFace li {
+.showCtnr #starFace li {
 	background: url(../img/star.png) no-repeat 0px -12px;
 }
 
@@ -1116,13 +1214,13 @@ body {
 	background: url(../img/star.png) no-repeat 0px -24px;
 }
 
-#ShowCtnr .showCover:hover #showStar {
+.showCtnr .showCover:hover #showStar {
 	bottom: 20px;
 	right: 20px;
 }
 
 /*展示信息*/
-#ShowCtnr .showMsg {
+.showCtnr .showMsg {
 	width: 260px;
 	height: 130px;
 	background: #fff;
@@ -1136,30 +1234,30 @@ body {
 	text-align: center;
 }
 
-#ShowCtnr .showMsg li:first-child {
+.showCtnr .showMsg li:first-child {
 	cursor: pointer;
 	padding-top: 20px;
 	font-size: 16px;
 }
 
-#ShowCtnr .showMsg li:first-child {
+.showCtnr .showMsg li:first-child {
 	cursor: pointer;
 }
 
-#ShowCtnr .showMsg li:first-child:hover {
+.showCtnr .showMsg li:first-child:hover {
 	color: #FA6F57;
 }
 
-#ShowCtnr .showMsg li:last-child {
+.showCtnr .showMsg li:last-child {
 	cursor: pointer;
 } 
 
 /*价格*/
-#ShowCtnr .msgMid {
+.showCtnr .msgMid {
 	margin: 8px 0;
 }
 
-#ShowCtnr .msgMid span {
+.showCtnr .msgMid span {
 	font-size: 14px;
 	display: inline-block;
 	line-height: 2em;
@@ -1167,63 +1265,63 @@ body {
 	width: 40%;
 }
 
-#ShowCtnr .msgMid span:first-child {
+.showCtnr .msgMid span:first-child {
 	font-weight: 500;
 	color: #919191;
 	text-decoration: line-through;
 }
 
-#ShowCtnr .msgMid span:last-child {
+.showCtnr .msgMid span:last-child {
 	font-weight: 600;
 	font-size: 18px;
 	color: #FA6F57;
 }
 
 /*增加操作*/
-#ShowCtnr .msgAdd {
+.showCtnr .msgAdd {
 	color: #1f1f1f;
 	font-size: 12px;
 }
 
-#ShowCtnr .msgAdd span {
+.showCtnr .msgAdd span {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0 10px;
 }
 
-#ShowCtnr .msgAdd span:hover {
+.showCtnr .msgAdd span:hover {
 	color: #FA6F57;
 }
 
 /*男装区*/
 
-#ShowCtnr .picBg4 {
+.showCtnr .picBg4 {
 	background: url(../img/images/men/jacket/271865-0286_1.jpg) no-repeat -44px center;
 	background-size: cover;
 }
 
-#ShowCtnr .picBg5 {
+.showCtnr .picBg5 {
 	background: url(../img/images/men/jacket/634082-0014_1.jpg) no-repeat -35px center;
 	background-size: cover;
 }
 
-#ShowCtnr .picBg6 {
+.showCtnr .picBg6 {
 	background: url(../img/images/men/jacket/217365-0014_1.jpg) no-repeat center center;
 	background-size: cover;
 }
 
-#ShowCtnr .picBg7 {
+.showCtnr .picBg7 {
 	background: url(../img/images/men/blazer/677326-0014_1.jpg) no-repeat center center;
 	background-size: cover;
 }
 
-#ShowCtnr .picBg8 {
+.showCtnr .picBg8 {
 	background: url(../img/images/men/jacket/271865-0286_1.jpg) no-repeat center center;
 	background-size: cover;
 }
 
 /*男装宽度*/
-.men #ShowCtnr > li {
+.men .showCtnr > li {
 	overflow: hidden;
 	width: 212px;
 	margin-right: 28px;
@@ -1231,22 +1329,23 @@ body {
 
 /*星条位置调整*/
 
-.men #ShowCtnr .showPic {
+.men .showCtnr .showPic {
 	/*background: #000;*/
 }
-.men #ShowCtnr #showStar {
+
+.men .showCtnr #showStar {
 	right: 60px;
 }
 
-.men #ShowCtnr .showCover:hover #showStar {
+.men .showCtnr .showCover:hover #showStar {
 	right: 60px;
 }
 
-.men #ShowCtnr .showMsg li {
+.men .showCtnr .showMsg li {
 	width: 80%;
 }
 
-.men #ShowCtnr  .msgAdd span {
+.men .showCtnr  .msgAdd span {
 	margin: -10px 6px 3px;
 }
 
@@ -1801,7 +1900,5 @@ body {
 	display: inline-block;
 	padding-bottom: 20px;
 	font-size: 12px;
->>>>>>> 271be16811e110845235cae9a4635e64a34b269d
 	color: #919191;
 }
-
